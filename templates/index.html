@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prompt Creator AI</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">P</div>
+        <div>
+          <div class="brand-name">PROMPT</div>
+          <div class="brand-sub">CREATOR AI</div>
+        </div>
+      </div>
+
+      <button class="new-chat" id="newChat">＋ New Prompt</button>
+
+      <div class="side-label">PROMPT LAB</div>
+      <button class="nav-item active" data-starter="Create a professional prompt for...">✦ Create</button>
+      <button class="nav-item" data-starter="Optimize this prompt for clarity and consistency:\n">◈ Optimize</button>
+      <button class="nav-item" data-starter="Analyze this prompt and identify weaknesses, risks, and improvements:\n">⌁ Analyze</button>
+      <button class="nav-item" data-starter="Convert this prompt into JSON:\n">{} Convert</button>
+      <button class="nav-item" data-starter="Build a reusable AI agent prompt for...">◇ AI Agent</button>
+
+      <div class="side-label">SPECIALIZED</div>
+      <div class="chips">
+        <span>CODING</span><span>RESEARCH</span><span>MARKETING</span>
+        <span>IMAGE</span><span>VOICE</span><span>WORKFLOW</span>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="status-dot"></div>
+        <span>Gemini connected</span>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="mobile-brand">PROMPT CREATOR</div>
+        <div class="model-pill"><span class="pulse"></span>{{ model }}</div>
+        <button class="icon-btn" id="themeBtn" title="Toggle theme">◐</button>
+      </header>
+
+      <section class="hero" id="hero">
+        <div class="eyebrow">PROMPT ENGINEERING STUDIO</div>
+        <h1>Turn ideas into<br><span>powerful prompts.</span></h1>
+        <p>Create, optimize, analyze and convert prompts with a dedicated AI assistant.</p>
+      </section>
+
+      <section class="chat-area" id="chatArea"></section>
+
+      <div class="composer-wrap">
+        <div class="suggestions" id="suggestions">
+          <button data-prompt="Create a reusable prompt for a customer support AI agent.">Customer support</button>
+          <button data-prompt="Create a detailed prompt for a Python coding assistant.">Coding assistant</button>
+          <button data-prompt="Create an image-generation prompt for a cinematic character portrait.">Image prompt</button>
+          <button data-prompt="Optimize this prompt for consistent structured output.">Optimize prompt</button>
+        </div>
+        <form class="composer" id="chatForm">
+          <textarea id="message" rows="1" placeholder="Describe the prompt you want to create..." autocomplete="off"></textarea>
+          <button type="button" class="mic-btn" id="micBtn" title="Voice input">●</button>
+          <button type="submit" class="send-btn" id="sendBtn" title="Send">➜</button>
+        </form>
+        <div class="composer-note">Enter to send · Shift + Enter for a new line · Voice input supported by compatible browsers</div>
+      </div>
+    </main>
+  </div>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
